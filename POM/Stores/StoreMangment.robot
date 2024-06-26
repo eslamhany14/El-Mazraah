@@ -7,31 +7,31 @@ ${STORE_MANGMENT_TAB}       xpath://*[@id="kt_aside_menu"]/ul/li[9]/a
 
 ${LAST_SIDEMENU_STORE_ELEMENT}    xpath://*[@id="kt_aside_menu"]/ul/li[11]/div/ul/li[5]/a
 
-${STORE_SECTION_TAB}        xpath://*[@id="kt_aside_menu"]/ul/li[12]/a
+#${STORE_SECTION_TAB}        xpath://*[@id="kt_aside_menu"]/ul/li[12]/a
 
 
 ${STORES_TAB}        xpath://*[@id="kt_aside_menu"]/ul/li[9]/div/ul/li[2]/a
 ${ADD_NEW_STORE_BTN}       xpath://*[@id="kt_wrapper"]/div[2]/ng-component/app-dynamic-grid/div/div/div/div/div/div[1]/div/button
 ${STORE_TYPE}     xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/form/div[1]/div/div/div/div/div[1]/p-radiobutton/div/div[2]
 ${NEW_STORE_NAME_FIELD}         id:StoreName
-${NEW_STORE_NAME}       StoreName
+${NEW_STORE_NAME}       StoreNameAutomation
 
 ${STORE_SECTOR}        name:StoreSectores
-${SELECT_STORE_SECTOR}      xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/form/div[2]/div[3]/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
+${SELECT_STORE_SECTOR}      xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/form/div[2]/div[3]/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
 
 ${STORE_KEEPER}        name:storeKeeper
 ${SELECT_STORE_KEEPER}      xpath:/html/body/ng-dropdown-panel/div/div[2]/div[1]
 
 ${ELEMENT_CLASSIFICATION}       xpath://*[@id="ItemClass"]
-${SELECT_ELEMENT_CLASSIFICATION}        xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[1]/div/select/option[2]
+${SELECT_ELEMENT_CLASSIFICATION}        xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[1]/div/select/option[2]
 
 ${ELEMENT_TYPE}     id:ItemType
-${SELECT_ELEMENT_TYPE}      xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[2]/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
+${SELECT_ELEMENT_TYPE}      xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[2]/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
 
 ${ELEMENT_NAME}     id:Item
-${SELECT_ELEMENT_NAME}      xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[3]/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
+${SELECT_ELEMENT_NAME}      xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[3]/div/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
 
-${PACKAGE_PRICE_FIELD}        xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[4]/div/div/input    100
+${PACKAGE_PRICE_FIELD}        xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[4]/div/div/input
 ${PACKAGE_PRICE}        100
 
 ${NUMBER_OF_CLOSED_PACKAGES_FIELD}        xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/div[1]/form/div[1]/div[5]/div/input
@@ -56,13 +56,13 @@ ${BROWSER}      chrome
 
 
 *** Keywords ***
-Scroll Into View All Store Sections
-    Sleep    5s
-    Scroll Element Into View    ${STORE_SECTION_TAB}
+#Scroll Into View All Store Sections
+##    Sleep    5s
+ #   Scroll Element Into View    ${STORE_SECTION_TAB}
 
 open Store Mangment Tab
-    Wait Until Element Is Enabled    ${STORE_MANGMENT_TAB}
-    Click Link    ${STORE_MANGMENT_TAB}
+    Sleep    10s
+    Click Link    إدارة المخازن
 
 
 Navigate To Stores Tab
@@ -70,23 +70,25 @@ Navigate To Stores Tab
 
 
 Add New Store BTN
+    Sleep    3s
     Click Button    ${ADD_NEW_STORE_BTN}
 
 
 Fill Store Data
+    Sleep    3s
     #store type
     Click Element    ${STORE_TYPE}
-    Sleep    5s
+    Sleep    2s
 
     Input Text    ${NEW_STORE_NAME_FIELD}    ${NEW_STORE_NAME}
 
     Click Element    ${STORE_SECTOR}
-    Sleep    3s
+    Sleep    2s
     Click Element    ${SELECT_STORE_SECTOR}
 
 
     Click Element        ${STORE_KEEPER}
-    Sleep    3s
+    Sleep    2s
     Click Element       ${SELECT_STORE_KEEPER}
 
 
@@ -95,15 +97,11 @@ Fill Store Elements Data
     Click Element    ${ELEMENT_CLASSIFICATION}
     Sleep    2s
     Click Element    ${SELECT_ELEMENT_CLASSIFICATION}
-
-    Sleep    3s
-
+    Sleep    2s
     Click Element    ${ELEMENT_TYPE}
       Sleep    2s
     Click Element    ${SELECT_ELEMENT_TYPE}
-
     Sleep    3s
-
     Click Element    ${ELEMENT_NAME}
       Sleep    2s
     Click Element    ${SELECT_ELEMENT_NAME}

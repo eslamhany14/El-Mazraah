@@ -23,21 +23,24 @@ ${BROWSER}      chrome
 
 *** Keywords ***
 Navigate To Suppliers Tab From PO
+    Wait Until Page Contains Element    ${SUPPLIERS_TAB}    15s
     Click Link    ${SUPPLIERS_TAB}
     Wait Until Page Contains       حسابات الموردين
 
 
 PO View Supplier Deatils
+    Wait Until Page Contains Element    ${VIEW_SUPPLIER_DETAILS}    15s
     Wait Until Page Contains       حسابات الموردين
     Click Button    ${VIEW_SUPPLIER_DETAILS}
-    Sleep    3s
 
 PO Add New Payment Recieve
+    Wait Until Page Contains Element    ${ADD_PAYMENT_RECIEVE}  15s
     Click Button    ${ADD_PAYMENT_RECIEVE}
-    Sleep    3s
+    Wait Until Page Contains Element    ${REQUAIRED_MONEY}      15s
     Input Text    ${REQUAIRED_MONEY}    1000
+    Wait Until Page Contains Element    ${SAVE_PAYMENT_RECIEVE}     10s
     Click Button    ${SAVE_PAYMENT_RECIEVE}
+    Wait Until Page Contains Element    ${CONFIRM_SAVE_PAYMENT_RECIEVE}     10s
     Click Button    ${CONFIRM_SAVE_PAYMENT_RECIEVE}
-    Sleep    5s
 
 

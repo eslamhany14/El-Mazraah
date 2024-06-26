@@ -9,10 +9,10 @@ ${ADD_NEW_TRANSFER_BTN}       xpath://*[@id="kt_wrapper"]/div[2]/ng-component/ap
 
 
 ${EXCHANGE_STORE_FIELD}       xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/form/div/div[1]/div/select
-${SELECT_EXCHANGE_STORE}     xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/form/div/div[1]/div/select/option[4]
+${SELECT_EXCHANGE_STORE}     xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/form/div/div[1]/div/select/option[4]
 
 ${RECIEVING_STORE_FIELD}       xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/form/div/div[2]/div/select
-${SELECT_RECIEVING_STORE}     xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/form/div/div[2]/div/select/option[3]
+${SELECT_RECIEVING_STORE}     xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/form/div/div[2]/div/select/option[3]
 
 
 
@@ -25,11 +25,14 @@ ${BROWSER}      chrome
 *** Keywords ***
 #*** Test Cases ***
 Navigate To Transfer Tab
-    Click Link    ${TRANSFER_ORDER_TAB}
-    Sleep    5s
+    Sleep    3s
+    Click Link    اوامر النقل
+    #${TRANSFER_ORDER_TAB}
 
 Add New Transfer BTN
-    Click Button    ${ADD_NEW_TRANSFER_BTN}
+    Sleep    5s
+    Click Button    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/app-dynamic-grid/div/div/div/div/div/div[1]/div/button
+         #${ADD_NEW_TRANSFER_BTN}
     Sleep    5s
 
 
@@ -50,10 +53,10 @@ Fill Elements Transfer Data
     Sleep    5s
     Click Element      xpath://tbody/tr[2]/td[1]/input[1]
     Sleep    3s
-    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/div[2]/p-table/div/div/table/tbody/tr[2]/td[5]/input    2
+    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/div[2]/p-table/div/div/table/tbody/tr[2]/td[5]/input    2
 
-    Click Element    xpath://tbody/tr[4]/td[1]/input[1]
-    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/ng-component/div/div/div[2]/p-table/div/div/table/tbody/tr[4]/td[5]/input    2
+   # Click Element    xpath://tbody/tr[4]/td[1]/input[1]
+  #  Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/ng-component/div/div/div[2]/p-table/div/div/table/tbody/tr[2]/td[5]/input    2
 
 
     Click Button    id:save

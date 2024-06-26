@@ -17,7 +17,7 @@ ${BROWSER}      chrome
 
 *** Keywords ***
 Navigate To Invoices Tab From PO
-    Sleep    3s
+    Wait Until Page Contains Element    ${INVOICES_TAB}     10s
     Click Link    ${INVOICES_TAB}
     Wait Until Page Contains       فواتير الشراء
 

@@ -19,20 +19,23 @@ ${BROWSER}      chrome
 
 *** Keywords ***
 Navigate To Inventory Tab
+    Sleep    8s
     Click Link    ${Inventory_TAB}
-    Sleep    5s
+
 
 Add New Inventory BTN
-    Click Link    ${ADD_NEW_INVENTORY_BTN}
     Sleep    5s
+    Click Link    ${ADD_NEW_INVENTORY_BTN}
+
 
 Fill Inventory Data
+    Sleep    5s
     Input Text    ${NEW_INVENTORY_NAME_FIELD}    EslamIventory
 
     #target store
     Click Element    xpath://*[@id="kt_wrapper"]/div[2]/app-create-edit-inventory-process/div/div/form/div[1]/div[2]/div/ng-select
     Sleep    3s
-    Click Element    xpath:/html/body/app-root/ng-component/div/default-layout/div[2]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/form/div[1]/div[2]/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
+    Click Element    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/form/div[1]/div[2]/div/ng-select/ng-dropdown-panel/div/div[2]/div[1]
 
 
     #element status
@@ -49,11 +52,15 @@ Fill Inventory Data
     #Input Text        text
 
 Fill Elements Inventory Data
-    Input Text      xpath://*[@id="pr_id_9-table"]/tbody/tr[2]/td[3]/input      200
-    Input Text    xpath://*[@id="pr_id_9-table"]/tbody/tr[2]/td[4]/div/input    200
-    
-    Input Text    xpath://*[@id="pr_id_9-table"]/tbody/tr[4]/td[3]/input    200
-    Input Text    xpath://*[@id="pr_id_9-table"]/tbody/tr[4]/td[4]/div/input     200
+    Sleep    3s
+    Input Text      xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/div[2]/p-table/div/div/table/tbody/tr[2]/td[3]/input     200
+    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/div[2]/p-table/div/div/table/tbody/tr[2]/td[4]/div/input    200
+    Sleep    2s
+    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/div[2]/p-table/div/div/table/tbody/tr[4]/td[3]/input    200
+    Input Text    xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-inventory-process/div/div/div[2]/p-table/div/div/table/tbody/tr[4]/td[4]/div/input    200
 
-
+    Sleep    2s
     Click Button    xpath://*[@id="kt_wrapper"]/div[2]/app-create-edit-inventory-process/div/div/div[3]/button[3]
+    Sleep    2s
+    Click Button    نـعم
+    Sleep    2s

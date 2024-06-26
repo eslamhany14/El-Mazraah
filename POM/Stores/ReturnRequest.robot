@@ -3,7 +3,8 @@ Library     SeleniumLibrary
 Resource    ../LoginPage.robot
 
 *** Variables ***
-${RETURN_TAB}        xpath://*[@id="kt_aside_menu"]/ul/li[9]/div/ul/li[5]/a
+${RETURN_TAB}        xpath://*[@id="kt_aside_menu"]/ul/li[9]/div/ul/li[4]/a
+
 
 ${ADD_NEW_RETURN_BTN}       xpath://*[@id="kt_wrapper"]/div[2]/ng-component/app-dynamic-grid/div/div/div/div/div/div[1]/div/button
 
@@ -29,14 +30,46 @@ Scroll To Element
     Execute Javascript  window.scrollTo(${x}, ${y})
     Log    ${x}, ${y}
 
+
+Scroll Item to View
+    [Arguments]    ${MenuText}
+    Scroll Element Into View    //*[@id="kt_aside_menu"]//*[contains(string(),'${MenuText}')]
+    ${passed}=    Run Keyword And Return Status    Page Should Contain Element
+    ...      //*[@id="kt_aside_menu"]//*[text()='${MenuText}']
+    IF    not ${passed}
+        Scroll Item to View    ${MenuText}
+    END
+
 Navigate To Return Tab
     Sleep    5s
     #Wait Until Page Contains Element    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
     #Scroll Element Into View    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
     #Scroll Element Into View        ${RETURN_TAB}
-    Scroll To Element    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
-    Sleep    5s
-    Click Link    ${RETURN_TAB}
+    #Scroll To Element    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
+    #Scroll Element Into View    طلبات المرتجعات
+    #Scroll Item to View    طلبات المرتجعات
+    #Scroll Element Into View    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
+    #Wait Until Page Contains Element    xpath://*[@id="kt_aside_menu"]/ul/li[11]/a
+    #Execute javascript       window.scrollTo(0,300)
+    Click Link    xpath://*[@id="kt_aside_menu"]/ul/li[9]/a
+
+    Scroll Element Into View          xpath://*[@id="kt_aside_menu"]/ul/li[16]/a
+
+    Sleep    15s
+ #   FOR    ${i}    IN RANGE    5
+  #  Press Keys    NONE    TAB
+   # END
+
+    #Wait Until Keyword Succeeds    5    3s    returneslam
+
+    Click Element    ${RETURN_TAB}
+    #Wait Until Element Is Visible    ${RETURN_TAB}
+    #Wait Until Element Is Enabled    ${RETURN_TAB}
+    #Page Should Contain Element    ${RETURN_TAB}
+
+returneslam
+    Wait Until Element Is Visible    ${RETURN_TAB}
+    Click Element    ${RETURN_TAB}
     Sleep    5s
 
 Add New Return BTN

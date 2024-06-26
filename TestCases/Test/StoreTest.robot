@@ -1,14 +1,14 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    ../LoginPage.robot
-Resource    ../Stores/StoreMangment.robot
-Resource    ../Stores/TransferOrder.robot
-Resource    ../Stores/ReturnRequest.robot
-Resource    ../Stores/StoreSection.robot
-Resource    ../Stores/InventoryProcess.robot
-Resource    ../Stores/StoreKeeper.robot
+Resource    ../../POM/Stores/StoreMangment.robot
+Resource    ../../POM/Stores/TransferOrder.robot
+Resource    ../../POM/Stores/ReturnRequest.robot
+Resource    ../../POM/Stores/StoreSection.robot
+Resource    ../../POM/Stores/InventoryProcess.robot
+Resource    ../../POM/Stores/StoreKeeper.robot
+Resource    ../../POM/LoginPage.robot
 
-Suite Setup    Set Selenium Timeout    10 seconds
+#Suite Setup    Set Selenium Timeout    10 seconds
 
 
 *** Variables ***
@@ -24,17 +24,10 @@ CREATE NEW STORE_SECTIONS TC
     Maximize Browser Window
     LoginASManger
     open Store Mangment Tab
-  #  Scroll Into View All Store Sections
     Navigate To Store Section Tab
     Add new Store Section
-    Close Browser
-
-CREATE NEW STORE
-    Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window
-    Login    ${Loginusername}    ${Loginpassword}
-    Sleep    10s
-    open Store Mangment Tab
+#CREATE NEW STORE
+    #open Store Mangment Tab
     Navigate To Stores Tab
     Add New Store BTN
     Fill Store Data
@@ -46,15 +39,11 @@ CREATE NEW Inventory
     Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
     Login    ${Loginusername}    ${Loginpassword}
-    Sleep    10s
     open Store Mangment Tab
-    Sleep    3s
     Navigate To Inventory Tab
-    Sleep    5s
     Add New Inventory BTN
-    Sleep    3s
     Fill Inventory Data
-    Sleep    5s
+    Fill Elements Inventory Data
     Close Browser
 
 
@@ -63,7 +52,7 @@ CREATE NEW RETURN REQUEST
     Maximize Browser Window
     Login    ${Loginusername}    ${Loginpassword}
     Sleep    10s
-    open Store Mangment Tab
+    #open Store Mangment Tab
     Navigate To Return Tab
     Add New Return BTN
     Sleep    5s

@@ -44,7 +44,7 @@ ${CONFIRM_SENDING_PRICES_OFFER}     xpath:/html/body/div/div/div[6]/button[1]
 ${CLICK_BUYING_SUGGESTION_TAB}      xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/tabset/ul/li[4]/a
 ${CLICK_ADD_NEW_BUYING_SUGGESTION_BTN}      xpath://*[@id="kt_wrapper"]/div[2]/ng-component/div/div/tabset/div/tab[4]/app-purchase-suggesstion/app-dynamic-grid/div/div/div/div/div/div[1]/div/button
 
-${EDIT_BUYING_SUGGESTION_BUTTON}        xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-purchase-suggesstion/div/div/div[2]/p-table/div/div/table/tbody/tr/td[1]/button
+${EDIT_BUYING_SUGGESTION_BUTTON}          xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-purchase-suggesstion/div/div/div[2]/p-table/div/div/table/tbody/tr/td[1]/button
 ${NEEDED_QUANTITY}      xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-purchase-suggesstion/div/div/div[2]/p-table/div/div/table/tbody/tr/td[4]/div/div[3]/p-celleditor/input
 ${CONFIRM_THE_EDIT_BUYING_SUGGESTION}   xpath:/html/body/app-root/ng-component/div/default-layout/div[1]/div/div[2]/div[2]/app-create-edit-purchase-suggesstion/div/div/div[2]/p-table/div/div/table/tbody/tr/td[1]/button[1]
 
@@ -79,115 +79,146 @@ ${BROWSER}      chrome
 *** Keywords ***
 Navigate To Purchase Tab From PO
     Sleep    3s
+    Wait Until Page Contains Element    ${PURCHASE_TAB_FROM_PO}     15s
     Click Link    ${PURCHASE_TAB_FROM_PO}
 
 Navigate To Purchase Order Tab From PO
     Sleep    3s
+    Wait Until Page Contains Element    ${PURCHASE_ORDER_TAB_FROM_PO}   15s
     Click Link    ${PURCHASE_ORDER_TAB_FROM_PO}
 
 Navigate To Purchase Request Tab From PO
-    Sleep    3s
+    Wait Until Page Contains Element    ${PURCHASE_REQUEST_TAB_FROM_PO}     15s
     Click Link       ${PURCHASE_REQUEST_TAB_FROM_PO}
 
 Navigate To Purchase Tab
-    Sleep    3s
+    Sleep    5s
+    Wait Until Page Contains Element    ${PURCHASE_TAB}     20s
+    Wait Until Element Is Visible    ${PURCHASE_TAB}    15s
+    Wait Until Element Is Enabled      ${PURCHASE_TAB}      15s
     Click Link    ${PURCHASE_TAB}
 
  Navigate To Purchase Order Tab
-    Sleep    3s
+    Wait Until Page Contains Element    ${PURCHASE_ORDER_TAB}   20s
     Click Link    ${PURCHASE_ORDER_TAB}
 
 
 View Purchase Order
-    Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_VIEW_PURCHASE_ORDER_BTN}    15s
     Click Button      ${CLICK_VIEW_PURCHASE_ORDER_BTN}
 
 
 View Purchase Order Details
-    Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_VIEW_PUCHASE_ORDER_DETAILS}     15s
     Click Link    ${CLICK_VIEW_PUCHASE_ORDER_DETAILS}
 
 Click Recivieing Order Button
-    Sleep    3s
+    Wait Until Page Contains Element    ${RECIVING_ORDER_BTN}   10s
     Click Button    ${RECIVING_ORDER_BTN}
 
 Click On View Request Order Details
-    Sleep    3s
+    Wait Until Page Contains Element    ${PO_CLICK_VIEW_PURCHASE_ORDER_BTN}     15s
     Scroll Element Into View    ${PO_CLICK_VIEW_PURCHASE_ORDER_BTN}
-    Sleep    3s
+    Wait Until Page Contains Element    ${PO_CLICK_VIEW_PURCHASE_ORDER_BTN}     10s
     Click Button    ${PO_CLICK_VIEW_PURCHASE_ORDER_BTN}
 
 
 Click On Reciveing Request Btn
-    Sleep    3s
+    Sleep    5s
+    Wait Until Page Contains Element    ${PO_CLICK_RECIEVEING_REQUEST_BTN}      10s
     Click Button    ${PO_CLICK_RECIEVEING_REQUEST_BTN}
+    Wait Until Page Contains Element    ${PO_CLICK_CONFIRM_RECIEVEING_REQUEST_BTN}  10s
     Click Button    ${PO_CLICK_CONFIRM_RECIEVEING_REQUEST_BTN}
 
 Add New Prices Offers
-    Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_PRICES_OFFERS_TAB}   10s
+    Sleep    5s
     Click Link    ${CLICK_PRICES_OFFERS_TAB}
-    Click Button    ${CLICK_ADD_NEW_PRICES_OFFERS_BTN}
     Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_ADD_NEW_PRICES_OFFERS_BTN}    10s
+    Click Button    ${CLICK_ADD_NEW_PRICES_OFFERS_BTN}
+    Wait Until Page Contains Element    ${EDIT_PRCIES_BUTTON}   10s
+    Sleep    5s
     Click Button    ${EDIT_PRCIES_BUTTON}
     Input Text    ${AVAILABLE_QUANTITY}     10
     Input Text    ${OFFERED_PRICE}      200
     Click Button    ${CONFIRM_THE_EDIT}
-    Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_EXPORTER_FIELD}     10s
     Click Element    ${CLICK_EXPORTER_FIELD}
+    Wait Until Page Contains Element    ${SELECT_EXPORTER_FIELD}    10s
     Click Element    ${SELECT_EXPORTER_FIELD}
-    Sleep    3s
+    Wait Until Page Contains Element    ${CLICK_EXPIRY_FIELD}   10s
     Click Element    ${CLICK_EXPIRY_FIELD}
+    Wait Until Page Contains Element    ${SELECT_EXPIRY_DATE}   10s
     Click Element    ${SELECT_EXPIRY_DATE}
-    Sleep    3s
+    Sleep    5s
+    Wait Until Page Contains Element    ${CLICK_SAVE_PRCIES_OFFER_BTN}  10s
     Click Button    ${CLICK_SAVE_PRCIES_OFFER_BTN}
     Sleep    5s
 
 
 Send Prices Offer
+    Sleep    5s
+    Click Link    ${CLICK_PRICES_OFFERS_TAB}
+    Sleep    3s
+    Wait Until Page Contains Element    ${SEND_PRICES_OFFER}    10s
     Click Button    ${SEND_PRICES_OFFER}
+    Wait Until Page Contains Element     ${CONFIRM_SENDING_PRICES_OFFER}    10s
     Click Button    ${CONFIRM_SENDING_PRICES_OFFER}
 
 
 Navigate To Buying Suggestion Tab
-    Sleep    3s
+    Sleep    10s
+    Wait Until Page Contains Element    ${CLICK_BUYING_SUGGESTION_TAB}  15s
     Click Link    ${CLICK_BUYING_SUGGESTION_TAB}
 
 
 Add New Buying Suggestion
     Navigate To Buying Suggestion Tab
+    Sleep    5s
     Click Button    ${CLICK_ADD_NEW_BUYING_SUGGESTION_BTN}
+    Sleep    5s
+    Wait Until Page Contains Element    ${EDIT_BUYING_SUGGESTION_BUTTON}    15
     Click Button    ${EDIT_BUYING_SUGGESTION_BUTTON}
     Input Text    ${NEEDED_QUANTITY}     10
     Click Button    ${CONFIRM_THE_EDIT_BUYING_SUGGESTION}
+    Wait Until Page Contains Element    ${CLICK_SAVE_THE_BUYING_SUGGESTION}     10s
     Click Button    ${CLICK_SAVE_THE_BUYING_SUGGESTION}
-    Sleep    5s
+    Sleep    3s
 
 View Buying Suggestion
     Click Button    ${MANGER_VIEW_BUYING_SUGGESTION}
 
 
 Manger Accept Buying Suggestion
+    Sleep    3s
+    Wait Until Page Contains Element    ${MANGER_CLICK_SAVE_BUYING_SUGGESTION}      10s
     Click Button    ${MANGER_CLICK_SAVE_BUYING_SUGGESTION}
+    Wait Until Page Contains Element     ${MANGER_CLICK_CONFIRM_BUYING_SUGGESTION}      10s
     Click Button    ${MANGER_CLICK_CONFIRM_BUYING_SUGGESTION}
-
+    Sleep    5s
 
 Purchase Officer Recieve the Purchase Order
+    Wait Until Page Contains Element    ${PO_CLICK_RECIEVEING_ORDER_BTN}    15s
     Click Button    ${PO_CLICK_RECIEVEING_ORDER_BTN}
+    Wait Until Page Contains Element    ${PO_CLICK_CONFIRM_RECIEVEING_ORDER_BTN}    15s
     Click Button    ${PO_CLICK_CONFIRM_RECIEVEING_ORDER_BTN}
 
 
 
 Purchase Officer Add New Buying Invoice
+    Wait Until Page Contains Element    ${NAVIGATE_INVOICE_TAB}     15s
     Click Link    ${NAVIGATE_INVOICE_TAB}
-    Sleep    3s
+    Wait Until Page Contains Element    ${PO_CLICK_ADD_NEW_INVOICE}     10s
     Click Button    ${PO_CLICK_ADD_NEW_INVOICE}
     
 Purchase Officer Edit New Buying Invoice
+    Wait Until Page Contains Element    ${PO_CLICK_EDIT_NEW_INVOICE}    15s
     Click Button    ${PO_CLICK_EDIT_NEW_INVOICE}
     Input Text    ${PO_ADD_RECIVED_QUANTITY_TO_INVOICE}    10
+    Wait Until Page Contains Element    ${PO_APPROVE_INVOICE_EDIT}  10s
     Click Button    ${PO_APPROVE_INVOICE_EDIT}
     Input Text    ${PO_ADD_TRANSACTIONS_FEES}    20
-    Sleep    3s
+    Wait Until Page Contains Element    ${PO_CLICK_SEND_INVOICE}    10s
     Click Button    ${PO_CLICK_SEND_INVOICE}
-    Sleep    5s
 

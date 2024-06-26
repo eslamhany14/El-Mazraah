@@ -6,6 +6,7 @@ Resource    Users/NewAccountPage.robot
 Resource    Sectors/SectorPage.robot
 Resource    Sectors/NewSectorsPage.robot
 Resource    ../LoginPage.robot
+Resource    ../../POM/LoginPage.robot
 
 
 Suite Setup    Set Selenium Timeout    10 seconds
@@ -33,14 +34,14 @@ LOGIN TC
    [Setup]    Open Browser    ${URL}    ${BROWSER}
     #Open Browser    ${URL}    ${BROWSER}
     Maximize Browser Window
-    Login    ${Loginusername}    ${Loginpassword}
+    Login   ${Loginusername}    ${Loginpassword}
     Close Browser
 
 #CREATE NEW EMP TC
  #   Navigate To Users Page
   #  Click Create New Account Button
     # TODO NO ACTION
-   # Fill New Account Form    ${NEW_USERNAME}    ${role}    ${salary}    ${Nname}    ${phone}    ${status}    ${qualification}
+    #Fill New Account Form    ${NEW_USERNAME}    ${role}    ${salary}    ${Nname}    ${phone}    ${status}    ${qualification}
 
 
 
