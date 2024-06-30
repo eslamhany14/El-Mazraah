@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../LoginPage.robot
+Resource    ../../POM/LoginPage.robot
 
 *** Variables ***
 ${URL}            http://13.67.167.149:8020/account/login          # Replace with your target URL

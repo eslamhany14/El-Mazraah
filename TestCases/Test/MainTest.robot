@@ -1,11 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    LoginPage.robot
-Resource    Users/UsersPage.robot
-Resource    Users/NewAccountPage.robot
-Resource    Sectors/SectorPage.robot
-Resource    Sectors/NewSectorsPage.robot
-Resource    ../LoginPage.robot
 Resource    ../../POM/LoginPage.robot
 
 
